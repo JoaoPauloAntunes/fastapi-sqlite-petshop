@@ -1,4 +1,4 @@
-database_path = "database/shop.db"
+database_path = "source/database/shop.db"
 
 
 class LastId:

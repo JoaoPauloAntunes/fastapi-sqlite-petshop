@@ -10,14 +10,17 @@ from source.views_render import views_router
 from source.dependencies import id_checker
 
 app = FastAPI()
-app.mount("/static", StaticFiles(directory="static"), name="static")
+
+app.mount("/static", StaticFiles(directory="source/static"), name="static")
+
 app.include_router(db_router, prefix="/customer", tags=["Customer CRUD"])
 app.include_router(file_router, prefix="/file", tags=["File management"])
 app.include_router(views_router, prefix="/views", tags=["Views"])
 
 
-templates = Jinja2Templates(directory="views")
-app.mount("/data", StaticFiles(directory="data"), name="data")
+viewstemplate = Jinja2Templates(directory="source/views")
+
+app.mount("/data", StaticFiles(directory="source/data"), name="data")
 
 
 @app.get("/")
@@ -32,7 +35,7 @@ async def last_id():
 
 @app.get("/home")
 async def home(request: Request):
-    return templates.TemplateResponse("home.html", {"request": request})
+    return viewstemplate.TemplateResponse("home.html", {"request": request})
 
 
 if __name__ == "__main__":

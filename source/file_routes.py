@@ -32,7 +32,7 @@ async def upload_file(files: List[UploadFile] = File(...)):
     customer = await retrieve_single_customer(user_id)
     print(customer)
 
-    return FileResponse("views/redirectComponent.html")
+    return FileResponse("source/views/redirectComponent.html")
 
 
 @file_router.get("/uploadpage", response_class=HTMLResponse)

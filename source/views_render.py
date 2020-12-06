@@ -12,8 +12,8 @@ from source.database.database_operations import (
 )
 
 views_router = APIRouter()
-templates = Jinja2Templates(directory="views")
-views_router.mount("/static", StaticFiles(directory="static"), name="static")
+templates = Jinja2Templates(directory="source/views")
+# views_router.mount("/static", StaticFiles(directory="static"), name="static")
 
 
 @views_router.get("/register/", response_class=HTMLResponse)
