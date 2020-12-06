@@ -1,4 +1,4 @@
-from file_handling import file_uploader
+from source.file_handling import file_uploader
 from source.database.database_operations import create_new_customer
 
 
