@@ -4,10 +4,10 @@ from fastapi.templating import Jinja2Templates
 import threading
 import uvicorn
 
-from database_routes import db_router
-from file_routes import file_router
-from views_render import views_router
-from dependencies import id_checker
+from source.database_routes import db_router
+from source.file_routes import file_router
+from source.views_render import views_router
+from source.dependencies import id_checker
 
 app = FastAPI()
 app.mount("/static", StaticFiles(directory="static"), name="static")
