@@ -4,9 +4,12 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from typing import List
 
-from database.schemas import CustomerSchema
-from register_model import register_process
-from database.database_operations import create_new_customer, retrieve_all_customers
+from source.database.schemas import CustomerSchema
+from source.register_model import register_process
+from source.database.database_operations import (
+    create_new_customer,
+    retrieve_all_customers,
+)
 
 views_router = APIRouter()
 templates = Jinja2Templates(directory="views")

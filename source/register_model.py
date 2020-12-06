@@ -1,5 +1,5 @@
 from file_handling import file_uploader
-from database.database_operations import create_new_customer
+from source.database.database_operations import create_new_customer
 
 
 async def register_process(customer, file):

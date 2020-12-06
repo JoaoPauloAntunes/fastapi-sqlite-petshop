@@ -1,6 +1,6 @@
 import sqlite3
 
-from dependencies import database_path, id_checker
+from source.dependencies import database_path, id_checker
 
 
 async def get_last_inserted():
@@ -54,7 +54,7 @@ async def retrieve_all_customers():
     finally:
         cursor.close()
         connection.close()
-    
+
     return customer_list
 
 

@@ -1,6 +1,6 @@
 from fastapi import FastAPI, APIRouter, Body
-from database.schemas import CustomerSchema, putCustomerSchema
-from database.database_operations import (
+from source.database.schemas import CustomerSchema, putCustomerSchema
+from source.database.database_operations import (
     create_new_customer,
     retrieve_all_customers,
     retrieve_single_customer,

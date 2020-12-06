@@ -1,16 +1,16 @@
 from fastapi import FastAPI, APIRouter, Body, UploadFile, File, Request
 from fastapi.responses import HTMLResponse, FileResponse, StreamingResponse
 from fastapi.templating import Jinja2Templates
+from typing import List
 
-from file_handling import file_uploader
-from database.database_operations import (
+from source.file_handling import file_uploader
+from source.database.database_operations import (
     get_last_inserted,
     update_customer,
     retrieve_single_customer,
 )
-from database.schemas import putCustomerSchema
-from typing import List
-from dependencies import id_checker
+from source.database.schemas import putCustomerSchema
+from source.dependencies import id_checker
 
 file_router = APIRouter()
 
