@@ -5,12 +5,13 @@
     {% for pet in pets %}
     <card>
         <div class="description">
+            <img src="/static/favicon.png" alt="">
             <h2>{{ pet[0] }}</h2>
         </div>
         <div class="description">
             <p>Idade: {{ pet[1]}}</p>
         </div>
-        <img src="/data{{ pet[2]}}" alt="data{{ pet[2]}}">
+        <img src="/data{{ pet[2]}}" alt="">
     </card>
     {% endfor %}
 </container>
@@ -29,7 +30,7 @@
         display: grid;
         /*max-height: 500px;*/
         place-items: center;
-        background: lightpink;
+        background: #e7c62f;
         border-radius: 1rem 4rem 1rem 1rem;
         padding-bottom: 0.55rem;
     }
@@ -40,6 +41,12 @@
         flex-direction: row;
         justify-content: space-evenly;
         align-items: center;
+    }
+
+    card .description img {
+        width: 30px;
+        height: 30px;
+        margin: 0.5rem;
     }
 
     card img {

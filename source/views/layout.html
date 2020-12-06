@@ -8,13 +8,14 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link rel="shortcut icon" href="static/favicon.png" type="image/x-icon">
+    <link rel="shortcut icon" href="/static/favicon.png" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
     <title>CãoDastro</title>
 </head>
 
 <header>
     <a href="/home" style="text-decoration: none">
+        <img src="/static/favicon.png" alt="">
         <h1>
             CãoDastro
         </h1>
@@ -37,8 +38,20 @@
     }
 
     header {
+        margin-top: 0.5rem;
         display: grid;
         place-items: center;
+    }
+
+    header a {
+        display: flex;
+        flex-direction: row;
+    }
+
+    header a img {
+        height: 50px;
+        width: 50px;
+        margin-right: 0.5rem;
     }
 
     header a h1 {
@@ -46,6 +59,6 @@
         font-weight: 700;
         font-size: 3rem;
         margin-bottom: 1rem;
-        color: white;
+        color: black;
     }
 </style>
