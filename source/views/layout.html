@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/main.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="shortcut icon" href="static/favicon.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
+    <title>CãoDastro</title>
+</head>
+
+<header>
+    <a href="/home" style="text-decoration: none">
+        <h1>
+            CãoDastro
+        </h1>
+    </a>
+</header>
+
+<body>
+    {% block content %}
+    {% endblock content %}
+</body>
+
+</html>
+
+<style>
+    body {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+    }
+
+    header {
+        display: grid;
+        place-items: center;
+    }
+
+    header a h1 {
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 3rem;
+        margin-bottom: 1rem;
+        color: white;
+    }
+</style>

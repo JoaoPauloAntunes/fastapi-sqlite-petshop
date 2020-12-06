@@ -1,0 +1,75 @@
+<frier>
+    <div class="pancake">
+        <label for="name">Nome</label>
+        <input id="fieldName" class="register" type="text" value="Jorginho">
+    </div>
+    <div class="pancake">
+        <label for="age">Idade</label>
+        <input id="fieldAge" class="register" type="text" value="8">
+    </div>
+    <!--
+    <label for="avatar">Avatar</label>
+    <input id="fieldAvatar" class="register" type="text" value="Sua av">
+-->
+    <div class="pancake">
+        <button type="button" onclick="submitForm()">
+            <p>Cadastrar</p>
+        </button>
+    </div>
+</frier>
+
+<style>
+    frier {
+        display: grid;
+        grid-gap: 1rem;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        place-items: center;
+        font-size: 1.2rem;
+    }
+
+    input {
+        font-size: large;
+        margin: 0.5rem;
+    }
+
+    label {
+        font-size: 1.2rem;
+    }
+
+    button {
+        border-radius: 0.3rem;
+        width: 6rem;
+        height: 3rem;
+        margin-bottom: 2rem;
+    }
+
+    button p {
+        font-size: 1.2rem;
+        font-weight: 500;
+    }
+
+    @media (min-width:600px) {
+        frier {
+            grid-gap: 1.8rem;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            font-size: 1.4rem;
+        }
+
+        button {
+            border-radius: 0.6rem;
+            display: grid;
+            width: auto;
+            height: auto;
+            place-items: center;
+        }
+
+        button p {
+            font-weight: 500;
+            font-size: 1.7rem;
+        }
+
+        input {
+            margin: 1rem;
+        }
+    }
+</style>

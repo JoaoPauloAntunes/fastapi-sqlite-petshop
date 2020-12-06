@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+{% block content%}
+<link rel="shortcut icon" href="static/favicon.png" type="image/x-icon">
+
+<body class="parent">
+    <box>
+        {%include "registerComponent.html"%}
+    </box>
+    <box>
+        {%include "uploadComponent.html"%}
+    </box>
+
+</body>
+
+<script src="/static/register/register.js"></script>
+
+<style>
+    .parent {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    box {
+        min-width: 200px;
+        max-width: 90vw;
+    }
+
+    button {
+        margin: 0.5rem;
+        padding: 0.5rem;
+    }
+
+    @media (min-width:600px) {
+        box {
+            min-width: 400px;
+            max-width: 90vw;
+        }
+
+        button {
+            margin: 1rem;
+            padding: 1rem;
+        }
+    }
+</style>
+
+{% endblock content%}
