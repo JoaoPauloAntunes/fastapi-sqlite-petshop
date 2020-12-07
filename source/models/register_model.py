@@ -1,6 +1,10 @@
-from source.models.database_operations import create_new_customer, update_avatar
+from source.models.database_operations import (
+    create_new_customer,
+    update_avatar,
+    retrieve_all_pets,
+)
 from source.models.schemas import PetSchema
-from source.file_handling import avatar_creation
+from source.models.file_handling import avatar_creation
 
 
 async def create_new_pet(files, name, age):
@@ -12,3 +16,8 @@ async def create_new_pet(files, name, age):
         if avatar_status:
             update_status = await update_avatar(avatar_path, user_id)
     return user_id, insert_status
+
+
+async def get_all_pets():
+    response = await retrieve_all_pets()
+    return response

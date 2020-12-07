@@ -4,16 +4,14 @@ from fastapi.templating import Jinja2Templates
 import threading
 import uvicorn
 
-
-from source.file_routes import file_router
-from source.views_render import views_router
-from source.dependencies import id_checker
+from source.routes.register_routes import register_router
+from source.routes.view_routes import views_router
 
 app = FastAPI()
 
 app.mount("/static", StaticFiles(directory="source/static"), name="static")
 app.mount("/data", StaticFiles(directory="source/data_avatar"), name="data")
-app.include_router(file_router, prefix="/file", tags=["File management"])
+app.include_router(register_router, prefix="/pet", tags=["Pet Management"])
 app.include_router(views_router, prefix="/views", tags=["Views"])
 
 

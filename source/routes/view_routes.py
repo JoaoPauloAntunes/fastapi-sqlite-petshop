@@ -7,7 +7,7 @@ from typing import List
 
 from source.models.database_operations import (
     create_new_customer,
-    retrieve_all_customers,
+    # retrieve_all_customers,
 )
 
 views_router = APIRouter()
@@ -25,7 +25,7 @@ async def main_register(request: Request):
 @views_router.get("/collection/", response_class=HTMLResponse)
 async def main_collection(request: Request):
     # return FileResponse("views/register.html")
-    pets_from_db = await retrieve_all_customers()
+    # pets_from_db = await retrieve_all_customers()
 
     names = []
     ages = []

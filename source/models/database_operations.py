@@ -24,21 +24,22 @@ async def create_new_customer(data):
     return new_id, state
 
 
-async def retrieve_all_customers():
+async def retrieve_all_pets():
     connection = sqlite3.connect(DATABASE_PATH)
     cursor = connection.cursor()
     try:
         sql = "select * from customer order by name desc"
         cursor.execute(sql)
         customer_list = cursor.fetchall()
-
+        state = True
     except Exception as error:
         print("ErrorListing" + str(error))
+        state = False
     finally:
         cursor.close()
         connection.close()
 
-    return customer_list
+    return customer_list, state
 
 
 async def retrieve_single_customer(user_id):

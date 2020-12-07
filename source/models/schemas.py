@@ -34,5 +34,22 @@ class UpdatePetSchema(BaseModel):
 
 
 class OutputModel(BaseModel):
-    new_id: int
-    status: bool
+    status: int
+    data: int
+
+    class Config:
+        schema_extra = {
+            "example": {
+                "status": 201,
+                "data": 32,
+            }
+        }
+
+
+# Response model from TestDriven
+def ResponseModel(data, code):
+    return {
+        "code": code,
+        "data": [data],
+        # "message": message,
+    }
