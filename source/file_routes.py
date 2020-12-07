@@ -1,48 +1,21 @@
-from fastapi import FastAPI, APIRouter, Body, UploadFile, File, Request
-from fastapi.responses import HTMLResponse, FileResponse, StreamingResponse
-from fastapi.templating import Jinja2Templates
+from fastapi import FastAPI, APIRouter, UploadFile, File, Form
+from fastapi.responses import FileResponse
 from typing import List
 
-from source.file_handling import file_uploader
-from source.database.database_operations import (
-    get_last_inserted,
-    update_customer,
-    retrieve_single_customer,
-)
-from source.database.schemas import putCustomerSchema
-from source.dependencies import id_checker
+from source.register_model import create_new_pet
+from source.models.schemas import OutputModel
 
 file_router = APIRouter()
 
 
-@file_router.post("/uploadfile/")
-async def upload_file(files: List[UploadFile] = File(...)):
-    # user_id = await get_last_inserted()
-    user_id = id_checker.get_id()
-    for file in files:
-        avatar = str(file_uploader(file, user_id))
-    customer = await retrieve_single_customer(user_id)
-    customer_data = customer[1]
-
-    name = customer_data[1]
-    age = customer_data[2]
-
-    item = putCustomerSchema(name=name, age=age, avatar=avatar)
-    _ = await update_customer(item, user_id)
-    customer = await retrieve_single_customer(user_id)
-    print(customer)
-
-    return FileResponse("source/views/redirectComponent.html")
+@file_router.post("/create_pet/", response_model=OutputModel)
+async def receive_creation_data(
+    files: List[UploadFile] = File(...),
+    name: str = Form(...),
+    age: int = Form(...),
+):
+    new_pet = await create_new_pet(files, name, age)
+    return {"new_id": new_pet[0], "status": new_pet[1]}
 
 
-@file_router.get("/uploadpage", response_class=HTMLResponse)
-async def upload_page():
-    # return HTMLResponse(content=content)
-    return FileResponse("src/templates/upload_image.html")
-
-
-@file_router.get("/last_pic")
-async def stream():
-    path = "receive.png"
-    file_like = open(path, mode="rb")
-    return StreamingResponse(file_like, media_type="image/png")
+#    return FileResponse("source/views/redirectComponent.html")

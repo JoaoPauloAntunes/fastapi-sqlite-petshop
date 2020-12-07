@@ -1,4 +1,6 @@
 database_path = "source/database/shop.db"
+DATABASE_PATH = "source/database/shop.db"
+SAMPLE_AVATAR = "sample.png"
 
 
 class LastId:

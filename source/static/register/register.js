@@ -16,7 +16,7 @@ function submitForm() {
 
     var j = {
         "name": name,
-        "age": age_parsed,
+        "code": code,
         "avatar": "/static/sample_pet.png"
     };
     xhr.send(JSON.stringify(j));

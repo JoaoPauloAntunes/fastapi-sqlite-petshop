@@ -1,10 +1,11 @@
 from pydantic import BaseModel, Field
+from typing import Optional
 
 
-class CustomerSchema(BaseModel):
+class PetSchema(BaseModel):
     name: str = Field(...)
     age: int = Field(...)
-    avatar: str = Field(...)
+    avatar: Optional[str] = Field(...)
 
     class Config:
         schema_extra = {
@@ -12,12 +13,12 @@ class CustomerSchema(BaseModel):
                 # "user_id": 1,
                 "name": "Jorjola",
                 "age": 25,
-                "avatar": "/avatar_default",
+                "avatar": "sample",
             }
         }
 
 
-class putCustomerSchema(BaseModel):
+class UpdatePetSchema(BaseModel):
     name: str = Field(...)
     age: int = Field(...)
     avatar: str = Field(...)
@@ -27,6 +28,11 @@ class putCustomerSchema(BaseModel):
             "example": {
                 "name": "New Name",
                 "age": 32,
-                "avatar": "/avatar_default",
+                "avatar": "sample",
             }
         }
+
+
+class OutputModel(BaseModel):
+    new_id: int
+    status: bool
